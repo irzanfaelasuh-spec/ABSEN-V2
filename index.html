@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>KELAS KITA — Absensi</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <div class="background">
+    <div class="blob blob-one"></div>
+    <div class="blob blob-two"></div>
+    <div class="blob blob-three"></div>
+
+    <span class="shape s1">✦</span>
+    <span class="shape s2">●</span>
+    <span class="shape s3">✦</span>
+    <span class="shape s4">＋</span>
+  </div>
+
+  <main class="app">
+
+    <header class="hero">
+
+      <div class="mascot">
+        <div class="mascot-face">
+          <span class="eye left"></span>
+          <span class="eye right"></span>
+          <span class="mouth"></span>
+        </div>
+      </div>
+
+      <div class="hero-text">
+        <div class="mini-title">HALO! 👋</div>
+        <h1>KELAS <span>KITA</span></h1>
+        <p>Yuk isi absensi kamu hari ini!</p>
+      </div>
+
+    </header>
+
+    <section class="card">
+
+      <form id="attendanceForm">
+
+        <div class="section-title">
+          <span class="number">01</span>
+          <div>
+            <h2>Siapa kamu?</h2>
+            <p>Tulis nama lengkapmu</p>
+          </div>
+        </div>
+
+        <div class="input-wrap">
+          <span class="input-icon">👤</span>
+
+          <input
+            type="text"
+            id="name"
+            autocomplete="name"
+            maxlength="40"
+            placeholder="Contoh: Irzan Faelasuh"
+            required
+          >
+
+          <span class="input-check" id="inputCheck">✓</span>
+        </div>
+
+
+        <div class="section-title status-heading">
+
+          <span class="number">02</span>
+
+          <div>
+            <h2>Hari ini kamu...</h2>
+            <p>Pilih salah satu ya!</p>
+          </div>
+
+        </div>
+
+
+        <div class="status-grid">
+
+          <button
+            type="button"
+            class="status-card hadir"
+            data-status="Hadir"
+          >
+            <span class="status-emoji">😎</span>
+            <span class="status-name">Hadir</span>
+            <span class="status-desc">Aku masuk!</span>
+          </button>
+
+
+          <button
+            type="button"
+            class="status-card izin"
+            data-status="Izin"
+          >
+            <span class="status-emoji">🙋</span>
+            <span class="status-name">Izin</span>
+            <span class="status-desc">Ada keperluan</span>
+          </button>
+
+
+          <button
+            type="button"
+            class="status-card sakit"
+            data-status="Sakit"
+          >
+            <span class="status-emoji">🤒</span>
+            <span class="status-name">Sakit</span>
+            <span class="status-desc">Kurang sehat</span>
+          </button>
+
+
+          <button
+            type="button"
+            class="status-card alpha"
+            data-status="Alpha"
+          >
+            <span class="status-emoji">😴</span>
+            <span class="status-name">Alpha</span>
+            <span class="status-desc">Tidak hadir</span>
+          </button>
+
+        </div>
+
+
+        <div class="selected-status" id="selectedStatus">
+          <span id="selectedEmoji">👀</span>
+          <span id="selectedText">Belum memilih status</span>
+        </div>
+
+
+        <button
+          type="submit"
+          class="submit-btn"
+          id="submitBtn"
+        >
+
+          <span class="btn-icon">🚀</span>
+
+          <span class="btn-text">
+            KIRIM ABSENSI
+          </span>
+
+          <span class="btn-arrow">→</span>
+
+        </button>
+
+      </form>
+
+    </section>
+
+
+    <div class="footer-note">
+      <span>✦</span>
+      KELAS KITA
+      <span>✦</span>
+    </div>
+
+  </main>
+
+
+  <!-- SUCCESS MODAL -->
+
+  <div class="modal-overlay" id="modal">
+
+    <div class="success-modal">
+
+      <button
+        class="close-modal"
+        id="closeModal"
+        type="button"
+      >
+        ×
+      </button>
+
+      <div class="success-icon">
+        🎉
+      </div>
+
+      <div class="success-sparkles">
+        ✦　✧　✦
+      </div>
+
+      <h2>Absensi Berhasil!</h2>
+
+      <p class="success-name" id="successName">
+        -
+      </p>
+
+      <div class="message-box">
+        <pre id="messagePreview"></pre>
+      </div>
+
+      <div class="modal-actions">
+
+        <button
+          type="button"
+          class="copy-btn"
+          id="copyBtn"
+        >
+          📋 Copy
+        </button>
+
+        <button
+          type="button"
+          class="whatsapp-btn"
+          id="openWhatsapp"
+        >
+          💬 Buka WhatsApp
+        </button>
+
+      </div>
+
+      <p class="small-note">
+        Pesan sudah disiapkan untuk dikirim ke grup.
+      </p>
+
+    </div>
+
+  </div>
+
+
+  <!-- TOAST -->
+
+  <div
+    class="toast"
+    id="toast"
+  >
+    <span id="toastIcon">✓</span>
+    <span id="toastText">Berhasil!</span>
+  </div>
+
+
+  <!-- CONFETTI -->
+
+  <div
+    class="confetti-container"
+    id="confetti"
+  ></div>
+
+
+  <script src="script.js"></script>
+
+</body>
+</html>
